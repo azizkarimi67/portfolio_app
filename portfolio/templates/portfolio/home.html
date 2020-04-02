@@ -1,0 +1,44 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content%}
+{% load static %}
+<body>
+<a href="{% url 'blog:all_blogs'  %}"> Blog</a>
+<br>
+<!-- <img src="{% static 'portfolio/pamirlogo.png' %}" width="50%" height="50%" > -->
+<h2>This portfolio file of mine
+</h2>
+
+
+
+
+<section id="services" class="services">
+      <div class="container">
+
+        <div class="row">
+        {% for project in projects %}
+          <div class="col-lg-4 col-md-6">
+              <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+              {% if project.url %}
+                  <div class="">
+                      <a href="{{ project.url }}">
+                          <div class="icon"><i class="">  <img src="{{ project.image.url }}" class="img-fluid mb-2" class="img-circle" alt="Cinque Terre" height="60" width="60"> </i></div>
+                      </a>
+                  </div>
+               {% else %}
+                  <div class="">
+                  <img src="{{ project.image.url }}" class="img-fluid mb-2" height="60" width="60">
+                  </div>
+             {% endif %}
+
+              <h4 class="title"><a href=""> {{ project.title }}</a></h4>
+              <p class="description">{{ project.description }}</p>
+            </div>
+          </div>
+       {% endfor %}
+
+        </div>
+      </div>
+    </section><!-- End Services Section -->
+{% endblock%}
+</body>

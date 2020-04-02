@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% extends 'portfolio/todobase.html' %}
+
+
+{% block content %}
+
+<h2>Sign Up</h2>
+<h1 color="yellow">{{ error }}</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit"> SignUp</button>
+</form>
+{% endblock %}
+</body>
+</html>

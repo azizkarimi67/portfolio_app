@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDoApp</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+Logged In as {{ user.username }}
+<a href="#">LogOut</a>
+{% else %}
+
+<a href="#">SignUp</a>
+<a href="#">SignIn</a>
+
+{% endif %}
+
+{% block content %}
+
+
+{% endblock %}
+</body>
+</html>
